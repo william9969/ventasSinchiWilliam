@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-list>
+    <ion-list-header>
+      Productos
+    </ion-list-header>
+      <ion-item  *ngFor="let producto of productos | async" (click)="visualizar(producto)">
+        <!--<ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>-->
+        <ion-label>
+          
+          <h2>{{producto.nombre}}</h2>
+          <h3>{{producto.precio}}</h3>
+          <p>{{producto.descripcion}}</p>
+        </ion-label>
+        <img src="{{producto.urlImg}}" style="width: 50 px; height : 50px"/>
+      </ion-item>
+  </ion-list>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="carritoCompras()">
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
